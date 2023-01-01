@@ -1,0 +1,70 @@
+//PHP
+Q1)
+//HTML FILE
+<html lang="en">
+<head>
+ <title>Document</title>
+</head>
+<body>
+ <form action="slip25.php" method="get">
+ Enter File name to read <input type="text" name="fname1"><br>
+ <input type="radio" name="op" value="1">Display Type of File<br>
+ <input type="radio" name="op" value="2">Display Modification Time<br>
+ <input type="radio" name="op" value="3">Display File Size<br>
+ <input type="radio" name="op" value="4">Delete File<br>
+ <input type="submit" value="Copy">
+</form>
+</body>
+</html>
+
+//PHP FILE
+<?php
+$fp=$_GET['fname1'];
+$op=$_GET['op'];
+switch($op)
+{
+ case 1:
+ echo basename($fp);
+ break;
+ case 2: $mtime=stat($fp);
+ echo Date("d/M/Y h:m:s",$mtime['mtime']);
+ break;
+ case 3:echo filesize($fp);
+ break;
+ case 4:unlink($fp);
+ echo "File deleted";
+ break;
+}
+
+
+
+
+//DS
+Q2A)
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.random.randn(50)
+y = np.random.randn(50)
+plt.plot(x,y)
+plt.show()
+plt.scatter(x,y,color=’green’)
+plt.show()
+plt.hist(x,color=’yellow’)
+plt.show()
+plt.boxplot(y, vert=False)
+plt.show()
+
+Q2B)
+from matplotlib import pyplot as plt
+import numpy as np
+# Creating dataset
+subjects = ['TCS', 'Data Science', 'OS',
+        'JAVA', 'PHP', 'Python']
+marks = [23, 17, 35, 29, 12, 33]
+ # Creating plot
+fig = plt.figure(figsize =(10, 7))
+plt.pie(marks, labels = subjects)
+ # show plot
+plt.show()
+
+
